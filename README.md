@@ -7,4 +7,4 @@ Desenvolvedores:
   
   Matheus Moreira Franco Gazzola - GEC - 2178
 
-Nosso projeto consiste em um pseudo jogo no estilo roguelike onde tera as relações entre derrotar um mostro, ganhar experiencia, habilidades, etc.
+Nosso projeto consiste em um banco de dados para nosso jogo no estilo roguelike onde tera as relações entre personagem e habilidades, monstros, classes e etc.
