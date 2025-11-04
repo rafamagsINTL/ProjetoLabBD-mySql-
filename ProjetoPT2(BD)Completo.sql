@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS `classe` (
   `nome` VARCHAR(45) NOT NULL,
   `descricao` TEXT NOT NULL,
   PRIMARY KEY (`idpersonagem_classe`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 CREATE TABLE IF NOT EXISTS `habilidade` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `habilidade` (
   `bonus_ataque` INT NOT NULL DEFAULT 0,
   `elemento` VARCHAR(20) NOT NULL DEFAULT 'NEUTRO',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 CREATE TABLE IF NOT EXISTS `monstro` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `monstro` (
   `defesa` INT NULL DEFAULT NULL,
   `xp_drop` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 CREATE TABLE IF NOT EXISTS `personagem` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `personagem` (
   INDEX `fk_personagem_classe1_idx` (`classe_idpersonagem_classe`),
   CONSTRAINT `fk_personagem_classe1`
     FOREIGN KEY (`classe_idpersonagem_classe`) REFERENCES `classe` (`idpersonagem_classe`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 CREATE TABLE IF NOT EXISTS `personagem_habilidade` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `personagem_habilidade` (
   INDEX `habilidade_id` (`habilidade_id`),
   CONSTRAINT `personagem_habilidade_ibfk_1` FOREIGN KEY (`personagem_id`) REFERENCES `personagem` (`id`) ON DELETE CASCADE,
   CONSTRAINT `personagem_habilidade_ibfk_2` FOREIGN KEY (`habilidade_id`) REFERENCES `habilidade` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 CREATE TABLE IF NOT EXISTS `status_extra` (
   `personagem_id` INT NOT NULL,
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `status_extra` (
   PRIMARY KEY (`personagem_id`),
   INDEX `fk_status_extra_personagem1_idx` (`personagem_id`),
   CONSTRAINT `fk_status_extra_personagem1` FOREIGN KEY (`personagem_id`) REFERENCES `personagem` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 INSERT INTO classe (nome, descricao) VALUES
   ('Guerreiro','Especialista em combate corpo a corpo'),
@@ -79,7 +79,7 @@ INSERT INTO habilidade (nome, descricao, dano_base, bonus_ataque, elemento) VALU
 INSERT INTO monstro (nome, hp, ataque, defesa, xp_drop) VALUES
   ('Slime',30,5,1,10),
   ('Goblin',45,8,3,20),
-  ('Orc',90,14,6,50);
+  ('Orc',90,14,6,50); 
 
 INSERT INTO personagem (nome, nivel, xp, hp, ataque, defesa, classe_idpersonagem_classe) VALUES
   ('Alice',1,20,120,14,7,1),
