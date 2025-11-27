@@ -1,4 +1,4 @@
-# ProjetoLabBD-mySql-
+# ProjetoLabBD
 repositorio para envio do projeto de BD 
 
 Desenvolvedores:
